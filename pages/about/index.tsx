@@ -1,5 +1,5 @@
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <div>this is About</div>
   )

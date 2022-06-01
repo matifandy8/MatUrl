@@ -1,9 +1,41 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import Urlform from "../components/urlform";
 import styles from "../styles/Home.module.scss";
 
-export default function Home() {
+const Home: React.FC = () => {
+  const [shortUrl, setShortUrl] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
+
+
+   // This is the function we wrote earlier
+   async function copyTextToClipboard(text) {
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+  }
+
+  // onClick handler function for the copy button
+  const handleCopyClick = () => {
+    // Asynchronously call copyTextToClipboard
+    copyTextToClipboard(shortUrl)
+      .then(() => {
+        // If successful, update the isCopied state value
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,14 +49,31 @@ export default function Home() {
         </div>
         <div className={styles.home__sub}>
           <p>
-            It's free to use and you can use it to shorten any URL you want.
+            It&apos;s free to use and you can use it to shorten any URL you
+            want.
           </p>
         </div>
-        <div className={styles.home__input}>
-          <input type="text" placeholder="Enter a URL to shorten" />
-          <button>icon</button>
+        <div className={styles.home__form}>
+          <Urlform setShortUrl={setShortUrl} />
+        </div>
+        <div className={styles.home__shorturl}>
+          {shortUrl ? (
+            <div>
+              <p>Your short URL is:</p>
+              <Link href={shortUrl}>
+                <a>{shortUrl}</a>
+              </Link>
+              <button onClick={handleCopyClick}>
+                <span>{isCopied ? "Copied!" : "Copy"}</span>
+              </button>
+            </div>
+          ) : (
+            <p>No short URL yet</p>
+          )}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Home;
