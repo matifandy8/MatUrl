@@ -1,0 +1,28 @@
+.Header{
+    &__title{
+        font-size: 2.0rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
+
+    &__list{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        margin-bottom: 20px;
+        list-style: none; 
+        &__item{
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            &:hover{
+              color: rgb(224, 110, 34);
+            }
+       
+      
+    }
+    }
+   
+}
