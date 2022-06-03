@@ -43,13 +43,7 @@ const Home: React.FC = () => {
       </Head>
       <div className={styles.home}>
         <div className={styles.home__main}>
-          <p>The privacy-friendly URL Shortener</p>
-        </div>
-        <div className={styles.home__sub}>
-          <p>
-            It&apos;s free to use and you can use it to shorten any URL you
-            want.
-          </p>
+          <p>The <b>privacy-friendly</b> URL Shortener</p>
         </div>
         <div className={styles.home__form}>
           <Urlform setShortUrl={setShortUrl} />

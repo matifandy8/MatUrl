@@ -9,14 +9,14 @@
 
     &__list{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding: 0 20px;
-        margin-bottom: 20px;
         list-style: none; 
         &__item{
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             text-transform: uppercase;
+            margin: 10px;
             &:hover{
               color: rgb(224, 110, 34);
             }
