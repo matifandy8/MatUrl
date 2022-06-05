@@ -1,7 +1,7 @@
 .Urlform {
-  display: flex;
-  justify-content: center;
+  
   input {
+    width: calc(100% - 22px);
     background: #ffffff0f;
     color: #fff;
     border-radius: 3px;
@@ -41,24 +41,10 @@
     text-align: center;
     margin: 0;
 }
-.loader {
-    border: 5px solid #000000;
-    border-radius: 50%;
-    border-top: 5px solid #fff;
-    width: 15px;
-    height: 15px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
+
+
+@media (min-width: 400px) {
+  .Urlform {
+    display: flex;
   }
-  
-  
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}

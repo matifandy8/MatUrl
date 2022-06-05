@@ -52,7 +52,7 @@ const Urlform: React.FC<UrlformProps> = ({ setShortUrl }) => {
         placeholder="Enter a URL"
         onChange={(e) => setUrl(e.target.value)}
       />
-      <button type="submit">{isLoading ? <div className={styles.loader}></div> : "Shorten"}</button>
+      <button type="submit">{isLoading ? "Loading..." : "Shorten"}</button>
     </form>
     <p className={styles.error}>{error}</p>
     </>
